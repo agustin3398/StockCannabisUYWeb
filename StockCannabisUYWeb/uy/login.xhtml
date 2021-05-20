@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+
+	<ui:composition template="Template.xhtml">
+
+		<ui:define name="titulo">Stock Cannabis UY - Login</ui:define>
+
+		<ui:define name="contenido">
+
+			<div class="login-page">
+				<div class="form">
+
+					<h:form class="login-form">
+						<input type="text" placeholder="Usuario" />
+						<input type="password" placeholder="Contraseña" />
+						<button>Iniciar Sesion</button>
+					</h:form>
+				</div>
+			</div>
+			
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			
+			<div class="login-page">
+				<div class="form">
+
+					<h:form class="login-form">
+						<h:inputText id="usuario" placeholder="Usuario"  value="#{login.usuario}" styleClass="input"></h:inputText>
+						<h:inputText id="contrasenia" placeholder="Contraseña"  value="#{login.contrasenia}" ></h:inputText>
+						<h:commandButton class="inicarSesion" action="#{login.validarUsuario}" value="INICIAR SESION"></h:commandButton>
+					</h:form>
+				</div>
+			</div>
+
+		</ui:define>
+
+
+	</ui:composition>
+</h:body>
+</html>

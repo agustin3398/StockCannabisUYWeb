@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:body>
+
+	<ui:composition template="Template.xhtml">
+	
+	<ui:define name ="titulo">Stock Cannabis UY</ui:define>
+
+		<ui:define name="contenido">
+
+			<!-- ======= Start Tabla Stock ======= -->
+
+			<h:form>
+				<div class="tablaStock">
+					<p:dataTable var="stock" value="#{empresaFarmaciaBeanDTT.empresas}">
+						<p:column headerText="Farmacia">
+							<h:outputText value="#{stock.razonSocial}" />
+						</p:column>
+						<p:column headerText="Stock">
+							<h:outputText value="#{stock.departamento}" />
+						</p:column>
+					</p:dataTable>
+				</div>
+			</h:form>
+
+			<!-- ======= End Tabla Stock ======= -->
+
+			<!-- ======= Start Mapa Farmacias======= -->
+
+
+			<!-- ======= Start Mapa Farmacias ======= -->
+		</ui:define>
+
+	</ui:composition>
+
+</h:body>
+
+</html>

@@ -3,14 +3,17 @@ package beans;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
-import javax.inject.Named;
 
+import controlador.ControladorEmpresaFarmaciaRemote;
+import entidades.EmpresaFarmacia;
 import entidades.TransaccionStockFarmacia;
 import entidades.Usuario;
 
-@ManagedBean(name ="empresaFarmaciaBean")
+@ManagedBean(name = "empresaFarmaciaBean")
 @SessionScoped
 public class EmpresaFarmaciaBean implements Serializable {
 
@@ -28,9 +31,34 @@ public class EmpresaFarmaciaBean implements Serializable {
 	private String rut;
 	private List<TransaccionStockFarmacia> transaccionStockFarmacias;
 	private Usuario usuario;
+	private List<EmpresaFarmacia> empresas = null;
 
-	
-	
+	@EJB
+	private ControladorEmpresaFarmaciaRemote controlador;
+
+	@PostConstruct
+	public void obtenerTodasEmpresasFarmacias() {
+		try {
+			empresas = controlador.obtenerTodasEmpresaFarmacia();
+			System.out.println(empresas.size());
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Hubo un error al crear obtenerTodasEmpresasFarmacias");
+			System.out.println("Clase: EmpresaFarmaciaBean");
+			System.out.println("Metodo: obtenerTodasEmpresasFarmacias");
+			System.out.println("****************************");
+		}
+
+	}
+
+	public List<EmpresaFarmacia> getEmpresas() {
+		return empresas;
+	}
+
+	public void setEmpresas(List<EmpresaFarmacia> empresas) {
+		this.empresas = empresas;
+	}
+
 	public int getIdempresaFarmacia() {
 		return idempresaFarmacia;
 	}

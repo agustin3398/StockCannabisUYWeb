@@ -18,26 +18,13 @@
 				<div class="form">
 
 					<h:form class="login-form">
-						<input type="text" placeholder="Usuario" />
-						<input type="password" placeholder="Contraseña" />
-						<button>Iniciar Sesion</button>
-					</h:form>
-				</div>
-			</div>
-			
-			<br></br>
-			<br></br>
-			<br></br>
-			<br></br>
-			<br></br>
-			
-			<div class="login-page">
-				<div class="form">
-
-					<h:form class="login-form">
-						<h:inputText id="usuario" placeholder="Usuario"  value="#{login.usuario}" styleClass="input"></h:inputText>
-						<h:inputText id="contrasenia" placeholder="Contraseña"  value="#{login.contrasenia}" ></h:inputText>
-						<h:commandButton class="inicarSesion" action="#{login.validarUsuario}" value="INICIAR SESION"></h:commandButton>
+						<span class="ui-float-label"> <p:inputText id="float-input"
+								value="#{login.usuario}" placeholder="Usuario" /> 
+						</span>
+						<p:password id="toggle" value="#{login.contrasenia}"
+							toggleMask="true" redisplay="true" placeholder="Contraseña" />
+						<p:button class="inicarSesion" action="#{login.validarUsuario}"
+							value="INICIAR SESION"></p:button>
 					</h:form>
 				</div>
 			</div>
